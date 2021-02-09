@@ -6,7 +6,7 @@
 #    By: aihya <aihya@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/30 10:17:50 by aihya             #+#    #+#              #
-#    Updated: 2019/09/18 19:47:44 by aihya            ###   ########.fr        #
+#    Updated: 2019/09/24 18:06:51 by aihya            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ SRC_NAME =	main.c \
 			interact.c \
 			data.c \
 			select.c \
-			move.c \
+			move_left.c \
+			move_up.c \
+			move_right.c \
+			move_down.c \
 			delete.c \
 			signals.c \
 			interact_keys_tests.c

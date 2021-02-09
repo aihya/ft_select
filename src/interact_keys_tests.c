@@ -6,7 +6,7 @@
 /*   By: aihya <aihya@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 19:44:37 by aihya             #+#    #+#             */
-/*   Updated: 2019/09/20 19:33:13 by aihya            ###   ########.fr       */
+/*   Updated: 2019/09/23 17:31:41 by aihya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int		is_arrow_key(int key)
 	return (0);
 }
 
-void	read_key(t_data *d, int tty)
+void	read_key(t_data *d)
 {
 	d->key = 0;
-	read(tty, &(d->key), sizeof(int));
+	read(d->tty, &(d->key), sizeof(int));
 }
 
 int		arrow_key_test(t_data *d)
@@ -50,21 +50,21 @@ int		arrow_key_test(t_data *d)
 	return (0);
 }
 
-int		function_keys_test(int key, t_data *d)
+int		function_keys_test(t_data *d)
 {
-	if (IS_DELETE(key) || IS_BSPACE(key))
+	if (IS_DELETE(d->key) || IS_BSPACE(d->key))
 	{
 		delete_arg(d);
 		if (d->lstsize == 0)
 			return (-1);
 	}
-	else if (IS_SPACE(key))
+	else if (IS_SPACE(d->key))
 		selected(d);
-	else if (IS_ENTER(key))
+	else if (IS_ENTER(d->key))
 		return (-1);
-	else if (IS_A(key))
+	else if (IS_A(d->key))
 		select_all(d);
-	else if (IS_F(key))
+	else if (IS_F(d->key))
 		flip(d);
 	return (1);
 }

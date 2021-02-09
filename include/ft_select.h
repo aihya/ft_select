@@ -6,7 +6,7 @@
 /*   By: aihya <aihya@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:57:36 by aihya             #+#    #+#             */
-/*   Updated: 2019/09/20 19:31:27 by aihya            ###   ########.fr       */
+/*   Updated: 2019/09/21 18:43:46 by aihya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ void			flip(t_data *d);
 void			delete_arg(t_data *d);
 int				open_tty();
 void			get_selected(t_data *d);
-int				read_key(int tty);
-int				arrow_key_test(int key, t_data *d);
-int				function_keys_test(int key, t_data *d);
+void			read_key(t_data *d);
+int				arrow_key_test(t_data *d);
+int				function_keys_test(t_data *d);
 
 #endif

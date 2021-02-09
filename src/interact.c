@@ -6,7 +6,7 @@
 /*   By: aihya <aihya@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 18:36:19 by aihya             #+#    #+#             */
-/*   Updated: 2019/09/20 19:32:40 by aihya            ###   ########.fr       */
+/*   Updated: 2019/09/23 16:30:27 by aihya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ void	interact(t_data *d)
 	enable_cap("vi");
 	while (1)
 	{
-		read_key(d->tty);
+		read_key(d);
 		if (IS_ESC(d->key))
 			break ;
 		if (d->interact)
 		{
-			if (arrow_key_test(d->key, d))
+			if (arrow_key_test(d))
 				put_cursor_at(d->pos.x * (d->max + 1), d->pos.y);
-			else if (function_keys_test(d->key, d) == -1)
+			else if (function_keys_test(d) == -1)
 				break ;
 			update_cursor(d, 1);
 		}

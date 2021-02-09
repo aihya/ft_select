@@ -6,7 +6,7 @@
 /*   By: aihya <aihya@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 04:59:31 by aihya             #+#    #+#             */
-/*   Updated: 2019/09/20 19:30:34 by aihya            ###   ########.fr       */
+/*   Updated: 2019/09/23 16:04:01 by aihya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_select(char **argv, int tty)
 	modify_main_caps(UNSET, g_data->tty);
 	if (g_data->ldim.c == 0)
 	{
+		enable_cap("ti");
 		modify_main_caps(SET, g_data->tty);
 		exit(EXIT_FAILURE);
 	}
@@ -33,7 +34,8 @@ void	ft_select(char **argv, int tty)
 		print_args(g_data);
 		interact(g_data);
 		modify_main_caps(SET, g_data->tty);
-		get_selected(g_data);
+		if (IS_ENTER(g_data->key))
+			get_selected(g_data);
 		exit(EXIT_SUCCESS);
 	}
 }
